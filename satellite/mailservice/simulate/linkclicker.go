@@ -5,6 +5,7 @@ package simulate
 
 import (
 	"context"
+    "fmt"
 	"net/http"
 	"strings"
 
@@ -43,7 +44,7 @@ func (clicker *LinkClicker) FromAddress() post.Address {
 // SendEmail click all links belonging to properly attributed anchors from email html parts.
 func (clicker *LinkClicker) SendEmail(ctx context.Context, msg *post.Message) (err error) {
 	defer mon.Task()(&ctx)(&err)
-
+    fmt.Println("HIT")
 	var body string
 	for _, part := range msg.Parts {
 		body += part.Content
